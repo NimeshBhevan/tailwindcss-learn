@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
 	darkMode: "selector",
-	content: ["./src/**/*.{html,js}"],
+	content: ["./docs/**/*.{html,js}"],
 	theme: {
 		extend: {
 			keyframes: {
@@ -20,8 +20,8 @@ module.exports = {
 		},
 	},
 	plugins: [
-		require("./src/plugins/openVariant"),
-		require("./src/plugins/animationDelay"),
-		require("./src/plugins/tableCaption"),
+		require("./docs/plugins/openVariant"),
+		require("./docs/plugins/animationDelay"),
+		require("./docs/plugins/tableCaption"),
 	],
 };
