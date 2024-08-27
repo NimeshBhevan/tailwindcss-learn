@@ -1,0 +1,397 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link href="./output.css" rel="stylesheet" />
+		<script src="./script.js"></script>
+	</head>
+	<body class="dark">
+		<main class="bg-zinc-200 dark:bg-zinc-900 pb-40">
+			<header class="text-zinc-200">
+				<!-- dark mode button -->
+				<button
+					id="dark-mode-toggle"
+					class="z-10 fixed top-24 right-0 inline-block w-10 cursor-pointer rounded-l-lg bg-zinc-900 dark:bg-zinc-200 text-zinc-200 dark:text-zinc-900 p-1"
+				>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						width="30"
+						height="30"
+						fill="currentColor"
+						class="bi bi-brightness-high-fill dark:hidden"
+						viewBox="0 0 16 16"
+					>
+						<path
+							d="M12 8a4 4 0 1 1-8 0 4 4 0 0 1 8 0M8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0m0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13m8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5M3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8m10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0m-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0m9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707M4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708"
+						/>
+					</svg>
+
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						width="30"
+						height="30"
+						fill="currentColor"
+						class="bi bi-moon-fill hidden dark:inline"
+						viewBox="0 0 16 16"
+					>
+						<path
+							d="M6 .278a.77.77 0 0 1 .08.858 7.2 7.2 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277q.792-.001 1.533-.16a.79.79 0 0 1 .81.316.73.73 0 0 1-.031.893A8.35 8.35 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.75.75 0 0 1 6 .278"
+						/>
+					</svg>
+				</button>
+				<!-- navbar -->
+				<nav
+					class="sticky z-10 top-0 flex bg-gradient-to-r from-rose-500 to-pink-500"
+				>
+					<!-- logo -->
+					<div class="flex items-center gap-2 p-2">
+						<img
+							src="./assets/images/logo-inverted.png"
+							alt="logo-inverted"
+							width="50"
+						/>
+						<div class="text-2xl font-bold">
+							tw:<span class="text-sky-900">mf</span>
+						</div>
+					</div>
+
+					<div class="my-auto ml-auto block cursor-pointer p-4 md:hidden">
+						<!-- hamburger icon -->
+						<button id="mobile-menu-button" class="group peer">
+							<div
+								class="relative top-0 h-1 w-8 rounded-full bg-zinc-200 transition-all group-open:top-2 group-open:rotate-45"
+							></div>
+							<div
+								class="mt-1 h-1 w-8 rounded-full bg-zinc-200 opacity-100 transition-all group-open:opacity-0"
+							></div>
+							<div
+								class="relative top-0 mt-1 h-1 w-8 rounded-full bg-zinc-200 transition-all group-open:-top-2 group-open:-rotate-45"
+							></div>
+						</button>
+						<!-- mobile menu list -->
+						<div
+							class="absolute left-0 top-[62px] hidden w-full bg-gradient-to-r from-rose-500 to-pink-500 peer-open:block"
+						>
+							<div
+								class="relative flex h-full items-center justify-center p-2 font-bold text-pink-200 transition-colors hover:bg-white/10 hover:text-zinc-200"
+							>
+								Home
+							</div>
+							<div
+								class="relative flex h-full items-center justify-center p-2 font-bold text-pink-200 transition-colors hover:bg-white/10 hover:text-zinc-200"
+							>
+								Lineup
+							</div>
+							<div
+								id="ticket-menu-item"
+								class="group relative h-full text-pink-200 transition-colors hover:bg-white/10 hover:text-zinc-200"
+							>
+								<div class="p-2 text-center font-bold">Tickets</div>
+								<div class="hidden group-open:block">
+									<div
+										class="relative p-1 text-center text-pink-200 transition-colors hover:bg-white/5 hover:text-zinc-200"
+									>
+										Single day ticket
+									</div>
+									<div
+										class="relative p-1 text-center text-pink-200 transition-colors hover:bg-white/5 hover:text-zinc-200"
+									>
+										7 day ticket
+									</div>
+								</div>
+							</div>
+							<div
+								class="relative flex h-full items-center justify-center p-2 font-bold text-pink-200 transition-colors hover:bg-white/10 hover:text-zinc-200"
+							>
+								Support
+							</div>
+						</div>
+					</div>
+
+					<!-- menu list -->
+					<div class="hidden flex-1 items-center justify-end md:flex">
+						<div
+							class="relative flex h-full cursor-pointer items-center p-2 text-pink-200 transition-colors ease-in-out hover:bg-white/10 hover:text-zinc-200"
+						>
+							Home
+						</div>
+						<div
+							class="relative flex h-full cursor-pointer items-center p-2 text-pink-200 transition-colors ease-in-out hover:bg-white/10 hover:text-zinc-200"
+						>
+							Lineup
+						</div>
+						<div
+							class="group relative flex h-full cursor-pointer items-center p-2 text-pink-200 transition-colors ease-in-out hover:bg-white/10 hover:text-zinc-200"
+						>
+							Tickets
+							<div
+								class="absolute right-0 top-full hidden whitespace-nowrap rounded-b-md bg-pink-500 text-right group-hover:block"
+							>
+								<div
+									class="p-2 font-bold transition-colors ease-in-out hover:bg-white/5 hover:text-zinc-200"
+								>
+									<span>Single day ticket</span>
+								</div>
+								<div
+									class="p-2 font-bold transition-colors ease-in-out hover:bg-white/5 hover:text-zinc-200"
+								>
+									<span>7 day ticket</span>
+								</div>
+							</div>
+						</div>
+						<div
+							class="relative flex h-full cursor-pointer items-center p-2 text-pink-200 transition-colors ease-in-out hover:bg-white/10 hover:text-zinc-200"
+						>
+							Support
+						</div>
+					</div>
+				</nav>
+
+				<!-- hero section -->
+				<div
+					style="background-image: url(./assets/images/hero.jpg)"
+					class="flex flex-col h-[calc(100vh-200px)] min-h-[400px] items-center justify-center bg-cover bg-fixed bg-center"
+				>
+					<div
+						class="rounded-xl bg-white/30 px-4 py-2 backdrop-blur-md text-center"
+					>
+						<div class="relative">
+							<img src="./assets/images/logo.png" alt="logo" width="175" />
+							<div class="flex items-center justify-center mt-[-70px] mb-5">
+								<div
+									class="flex h-14 w-14 rounded-full bg-pink-500 items-center justify-center gap-1"
+								>
+									<div
+										class="w-1 h-2 bg-pink-300 rounded-full animate-wavey"
+									></div>
+									<div
+										class="w-1 h-3 bg-pink-200 rounded-full animate-wavey animation-delay-200"
+									></div>
+									<div
+										class="w-1 h-4 bg-pink-100 rounded-full animate-wavey animation-delay-[150ms]"
+									></div>
+									<div
+										class="w-1 h-3 bg-pink-200 rounded-full animate-wavey animation-delay-300"
+									></div>
+									<div
+										class="w-1 h-2 bg-pink-300 rounded-full animate-wavey animation-delay-[75ms]"
+									></div>
+								</div>
+							</div>
+						</div>
+						<div class="text-5xl font-bold">
+							tw:<span class="text-sky-900">mf</span>
+						</div>
+					</div>
+					<div class="font-bold mt-3 text-sm">
+						Keep me updated with news and promotions
+					</div>
+					<form class="mt-3 flex gap-2">
+						<input
+							type="email"
+							placeholder="Email"
+							class="rounded-sm border-white/40 bg-white/30 backdrop-blur-md p-2 font-bold text-sky-900 placeholder-zinc-300 caret-amber-500"
+						/>
+						<button
+							type="submit"
+							class="cursor-pointer rounded-sm bg-pink-500 py-2 px-4 font-bold transition-colors hover:bg-sky-900 hover:shadow-lg hover:shadow-black/20"
+						>
+							Subscribe
+						</button>
+					</form>
+				</div>
+			</header>
+			<div
+				class="max-w-screen-lg mx-auto mt-20 text-zinc-900 dark:text-zinc-200"
+			>
+				<h2 class="px-4">
+					<span
+						class="text-transparent bg-gradient-to-r from-cyan-500 to-pink-500 bg-clip-text"
+						>Headliners</span
+					>
+				</h2>
+				<p class="px-4">
+					Experience the sonic delight from these made-up artists across 7 days
+					that music fans are calling “one of the many gigs that will happen
+					this year”
+				</p>
+
+				<!-- carousel -->
+				<div class="flex">
+					<div
+						id="previous"
+						class="flex justify-center items-center cursor-pointer p-3 relative -top-8"
+					>
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							width="30"
+							height="30"
+							fill="currentColor"
+							class="bi bi-caret-left"
+							viewBox="0 0 16 16"
+						>
+							<path
+								d="M10 12.796V3.204L4.519 8zm-.659.753-5.48-4.796a1 1 0 0 1 0-1.506l5.48-4.796A1 1 0 0 1 11 3.204v9.592a1 1 0 0 1-1.659.753"
+							/>
+						</svg>
+					</div>
+
+					<div
+						id="carousel"
+						class="flex flex-1 w-full gap-4 pb-5 mt-4 snap-x overflow-x-auto scroll-smooth"
+					>
+						<div class="min-w-[80%] md:min-w-[40%]">
+							<div
+								style="background-image: url(./assets/images/band1.jpg)"
+								class="h-80 w-full snap-center rounded-xl bg-center shadow-md shadow-black/20 bg-cover"
+							></div>
+							<h5 class="mt-2">Corduray Gary</h5>
+							<h6>1st July 9pm - Main Stage</h6>
+						</div>
+						<div class="min-w-[80%] md:min-w-[40%]">
+							<div
+								style="background-image: url(./assets/images/band2.jpg)"
+								class="h-80 w-full snap-center rounded-xl bg-center shadow-md shadow-black/20 bg-cover"
+							></div>
+							<h5 class="mt-2">Dave's showing off again</h5>
+							<h6>2nd July 9pm - Main Stage</h6>
+						</div>
+						<div class="min-w-[80%] md:min-w-[40%]">
+							<div
+								style="background-image: url(./assets/images/band3.jpg)"
+								class="h-80 w-full snap-center rounded-xl bg-center shadow-md shadow-black/20 bg-cover"
+							></div>
+							<h5 class="mt-2">Sarah can't have dairy</h5>
+							<h6>3rd July 9pm - Main Stage</h6>
+						</div>
+						<div class="min-w-[80%] md:min-w-[40%]">
+							<div
+								style="background-image: url(./assets/images/band4.jpg)"
+								class="h-80 w-full snap-center rounded-xl bg-center shadow-md shadow-black/20 bg-cover"
+							></div>
+							<h5 class="mt-2">Corduray Gary</h5>
+							<h6>1st July 9pm - Main Stage</h6>
+						</div>
+						<div class="min-w-[80%] md:min-w-[40%]">
+							<div
+								style="background-image: url(./assets/images/band5.jpg)"
+								class="h-80 w-full snap-center rounded-xl bg-center shadow-md shadow-black/20 bg-cover"
+							></div>
+							<h5 class="mt-2">Corduray Gary</h5>
+							<h6>1st July 9pm - Main Stage</h6>
+						</div>
+						<div class="min-w-[80%] md:min-w-[40%]">
+							<div
+								style="background-image: url(./assets/images/band6.jpg)"
+								class="h-80 w-full snap-center rounded-xl bg-center shadow-md shadow-black/20 bg-cover"
+							></div>
+							<h5 class="mt-2">Corduray Gary</h5>
+							<h6>1st July 9pm - Main Stage</h6>
+						</div>
+						<div class="min-w-[80%] md:min-w-[40%]">
+							<div
+								style="background-image: url(./assets/images/band7.jpg)"
+								class="h-80 w-full snap-center rounded-xl bg-center shadow-md shadow-black/20 bg-cover"
+							></div>
+							<h5 class="mt-2">Corduray Gary</h5>
+							<h6>1st July 9pm - Main Stage</h6>
+						</div>
+					</div>
+
+					<div
+						id="next"
+						class="flex justify-center items-center cursor-pointer p-3 relative -top-8"
+					>
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							width="30"
+							height="30"
+							fill="currentColor"
+							class="bi bi-caret-right"
+							viewBox="0 0 16 16"
+						>
+							<path
+								d="M6 12.796V3.204L11.481 8zm.659.753 5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753"
+							/>
+						</svg>
+					</div>
+				</div>
+
+				<h2 class="mt-20 px-4">Lineup</h2>
+				<p class="px-4">
+					Follow the timetable and stage to ensure you don't miss your favourite
+					artists
+				</p>
+				<div
+					class="relative mt-5 rounded-lg bg-zinc-800 text-zinc-200 py-4 px-2"
+				>
+					<div
+						class="absolute top-0 left-1/2 w-4 ml-[-8px] h-full rounded-full bg-gradient-to-b from-sky-900 via-cyan-500 to-teal-500"
+					>
+						<div class="sticky top-1/2">
+							<div class="relative h-4 w-4">
+								<div
+									class="absolute size-4 animate-ping rounded-full bg-pink-500 opacity-75"
+								></div>
+								<div class="relative bg-rose-500 h-4 w-4 rounded-full"></div>
+							</div>
+						</div>
+					</div>
+					<div class="grid grid-cols-2 gap-8">
+						<div>
+							<h4 class="p-2 bg-zinc-900 rounded-lg my-4">1st July</h4>
+						</div>
+						<div></div>
+						<div class="text-right">
+							<div class="font-bold">Jackie Chaston</div>
+							<div class="text-zinc-400">6pm - Sage Stage</div>
+						</div>
+						<div></div>
+						<div></div>
+						<div>
+							<div class="font-bold">Jackie Chaston</div>
+							<div class="text-zinc-400">6pm - Sage Stage</div>
+						</div>
+						<div>
+							<h4 class="p-2 bg-zinc-900 rounded-lg my-4">2nd July</h4>
+						</div>
+						<div></div>
+						<div class="text-right">
+							<div class="font-bold">Jackie Chaston</div>
+							<div class="text-zinc-400">6pm - Sage Stage</div>
+						</div>
+						<div></div>
+						<div></div>
+						<div>
+							<div class="font-bold">Jackie Chaston</div>
+							<div class="text-zinc-400">6pm - Sage Stage</div>
+						</div>
+					</div>
+				</div>
+				<h2 class="mt-20">Tickets</h2>
+				<table class="mt-5 table w-full border-collapse border border-zinc-500">
+					<thead class="text-lg font-bold">
+						<td class="border border-zinc-500 p-3">Tickets</td>
+						<td class="border border-zinc-500 p-3">Price</td>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="border border-zinc-500 px-3 py-2">
+								Single day ticket
+							</td>
+							<td class="border border-zinc-500 px-3 py-2">£30</td>
+						</tr>
+						<tr>
+							<td class="border border-zinc-500 px-3 py-2">7 day ticket</td>
+							<td class="border border-zinc-500 px-3 py-2">£100</td>
+						</tr>
+					</tbody>
+					<caption class="caption-bottom">
+						Once they're gone, they're gone
+					</caption>
+				</table>
+			</div>
+		</main>
+	</body>
+</html>
